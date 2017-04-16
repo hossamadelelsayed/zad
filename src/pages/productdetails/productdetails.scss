@@ -1,0 +1,89 @@
+page-productdetails {
+    .fixed-content{
+        margin-top: 56px !important;
+    }
+     .header{
+        background-color:$hcolor;
+        .title{
+            display: inline  !important; 
+            color: white !important;
+             .toolbar{
+                    margin-top: 10px;
+                    .right{
+                    font-size: 2.2em;
+                    position: fixed;
+                    right: 13px;
+                    top: 11px
+                    }
+                    .left{
+                         font-size: 2.2em;
+                         position: fixed;
+                         left: 13px;
+                         top: 11px
+                    }
+                    span{
+                        position: fixed;  
+                        left: 45%;
+                        top: 15px
+                    }
+
+                } 
+            }
+    }
+    .toolbar-title{
+        color: white;
+    }
+    
+    .slides{
+        height: 170px !important;
+       
+    }
+    .item{
+        background-color: transparent;
+        padding-left: 5px !important;
+        h5{
+            display: inline-block;
+        }
+        ion-icon{
+            float: right ;
+            color: red ; 
+             }
+          span{
+              color:#0d9e0d;
+          }   
+        }
+   .chartdiv{    
+        border-radius: 13%;
+        background-color: white;
+        border: 1px solid lightgray;
+        width: 85px;
+        height: 33px;
+        float: right;
+        span{
+            color: gray;
+            padding-left: 16px;
+            position: relative;
+            border-right: 1px solid gray;
+            padding-right: 10px;
+            top: 6px;
+          } 
+         .add{
+            font-size: 16px;
+            color: black;
+            position: relative;
+            right: 15px;
+            z-index: 1;
+         }   
+         .cart{
+             color:#7d7d7d ; 
+             font-size:x-large;
+             font-size: 25px;
+             position: relative;
+             top: 5px;
+             right: 5px;
+         }
+    }
+
+    
+  
+}

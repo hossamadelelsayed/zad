@@ -1,0 +1,54 @@
+page-login {
+    .header{
+background-color:#a21fad;
+    }
+    
+    .input{
+            margin: 25px auto 0;
+            background-color: white;
+            width: 90%;
+            border-radius: 8px;
+            height: 55px;
+            border: 1px solid lightgray;
+    }
+    .text-input{
+        margin: 19px 8px 13px 25px;
+    }
+    .forma{
+        margin-top: 75px;
+    }
+    .button-clear{
+        width:50%;
+    }
+    .logbtn{
+            margin-left: 6% !important;
+            margin-top: 85px;
+            height: 50px;
+            width: 89%;
+            background-color: black;
+            border-radius: 8px;
+         &:hover{
+        background-color: black;
+    }
+    }
+    .signbtn{
+      
+            margin-left: 6% !important;
+            margin-top: 20px;
+            height: 50px;
+            width: 89%;
+            background-color:#a21fad ;
+            border-radius: 8px;
+     &:hover{
+        background-color: #a21fad;
+    }
+    }  
+    .forget{
+            position: fixed;
+            top: 5px;
+            left: 12%;
+      
+    }
+       
+    
+}

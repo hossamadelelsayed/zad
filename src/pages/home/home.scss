@@ -1,0 +1,195 @@
+page-home {
+.back-button-icon{
+    display: none;
+}
+
+ .header{
+    background-color:$hcolor;
+    height: 75px;
+        .title{
+            display: inline  !important;
+           
+            color: white !important;
+             .toolbar{
+                    margin-top: 10px;
+                .right{
+                    font-size: 2.2em;
+                    position: fixed;
+                    right: 13px;
+                    top: 11px
+                    }
+                    .left{
+                         font-size: 2.2em;
+                        position: fixed;
+                        left: 13px;
+                        top: 11px
+                    }
+                    span{
+                    position: fixed;  
+                    left: 45%;
+                        top: 15px
+                    }
+
+                } 
+            }
+    }
+    .toolbar-title{
+        color: white;
+    }
+    
+    .slides{
+        height: 170px !important;
+       
+    }
+    .select {
+            display: inline-flex;
+            padding:0 8px 11px 16px !important;
+    }
+    
+    .subtitle{
+      
+        display: inline-flex;
+        
+    }
+    .item{
+        display: inline;
+        margin: 10px;
+    }
+.gridrow{
+    height: 195px;
+    padding:0 1%;
+    border-bottom:1px solid gray;
+    margin-top: 10px;
+   }
+.product{
+    
+    max-height: 100%;
+    height: 160px;
+    border-bottom:1px solid gray;
+    border-right:1px solid gray; 
+
+}
+
+  .bar{
+
+      height:50px;background-color:white
+  }
+    .spanleft{
+        float:left;
+    }
+    .spanright{
+        float:right;
+        color:#0d9e0d;
+    }
+    .chartdiv{    
+        background-color: white;
+        border: 1px solid lightgray;
+        border-radius: 20px;
+        width: 72px;
+        height: 27px;
+        position: relative;
+        bottom: -100px;
+        .spannum{
+            color: gray;
+            padding-left: 16px;
+            position: relative;
+            border-right: 1px solid gray;
+            padding-right: 10px;
+            top: 6px;
+          } 
+         .add{
+            font-size: 16px;
+            color: black;
+            position: relative;
+            left: 15px;
+            z-index: 1;
+         }   
+         .cart{
+            color: #7d7d7d;
+            font-size: x-large;
+            font-size: 25px;
+            position: relative;
+            bottom: 16px;
+            left: 40px;
+}
+         }
+         .menurow{
+            height: 150px;
+            margin: 15px;
+            border: 2px solid lightgray;
+            background-color: white;
+           
+           .col{
+               height: 100%;
+               max-height: 100%;
+               padding: 0 10px 0 0;
+               h5{
+                   margin-top: 0;
+                   display: inline-flex;
+               }
+               
+               .itemprice{
+                    border-radius: 20px;
+                    background-color: #16c116;
+                    float: left;
+                    height: 30px;
+                    width: 62px;
+                    padding: 3%;
+               }
+           }  
+           .menuimg{
+             height: 100%;
+         }
+         }
+
+
+        .heart{
+                color: red;
+                font-size: xx-large;
+                float: right;
+        }
+           
+        
+        .menucart {
+            float: right;
+            border-radius: 20px;
+            border: 1px solid gray;
+            background-color: white;
+            width: 60px;
+            height: 30px;
+            padding-left: 8px;
+            padding-top: 6px;
+            margin-right: 3%;
+
+            span{
+                color: gray;
+                border-right: 1px solid gray;
+                padding-right: 8px;
+            }
+
+          .add{
+            position: absolute;
+            top: 2px;
+            right: 14px;
+            /* border-left: 1px solid; */
+            z-index: 3;
+          }
+          .cart{
+                  position: absolute;
+                  right: 20px;
+                  color: gray;
+                  font-size: 21px;
+          }
+    }
+    .lastdiv{
+        position: absolute;
+        bottom: 2px;
+        height: 33px; 
+        width:100%
+    }
+
+
+
+    }
+
+
