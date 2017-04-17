@@ -27,8 +27,11 @@ export class MyApp {
 
 
     this.pages = [
-      { title: 'Home', icon: 'home',component: Signup },
-      { title: 'SignUp', icon: 'home',component: LoginPage },
+      { title: 'Home', icon: 'home',component: HomePage},
+      { title: 'SignUp', icon: 'home',component: Signup },
+      { title: 'Login', icon: 'home',component: LoginPage},
+      { title: 'Lang', icon: 'home',component: Lang },
+
     ]
   }
   openPage(p:any){

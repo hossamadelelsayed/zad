@@ -5,20 +5,28 @@ import { LoginPage } from '../login/login';
 import { Lang } from '../lang/lang';
 import { Productdetails } from '../productdetails/productdetails';
 import { Favorite } from '../favorite/favorite';
-
+import {ProductService} from "../../providers/product-service";
+import {MainService} from "../../providers/main-service";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController) {
+  public MainService = MainService;
+  public products : any = null;
+  constructor(public navCtrl: NavController
+              ,public alertCtrl: AlertController
+              ,public productService : ProductService) {
 
   }
-
+  ionViewWillEnter(){
+    this.productService.productGet().subscribe((res)=>{
+      this.products = res;
+    });
+  }
   gotolog(){
-  this.navCtrl.push(LoginPage);
-}
+    this.navCtrl.push(LoginPage);
+  }
   gotolang()
   {
     this.navCtrl.push(Lang);
@@ -26,7 +34,7 @@ export class HomePage {
   favorite(){
     this.navCtrl.push(Favorite);
   }
-  
+
 
   showCheckbox() {
     let alert = this.alertCtrl.create();

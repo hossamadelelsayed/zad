@@ -5,7 +5,13 @@
 .toolbar-background{
     background-color: $hcolor;
      border:none !important;
-    
+
+}
+.swiper-slide img {
+  max-width: 100% !important;
+  max-height: 170px !important;
+  height: 169px !important;
+  width: 100% !important;
 }
 .toolbar-title{
     color:white;
@@ -18,7 +24,7 @@
 }
 .button{
     text-transform: none;
-   
+
 }
 
 .alert-md .alert-wrapper{

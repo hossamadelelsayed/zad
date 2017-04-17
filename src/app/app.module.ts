@@ -14,6 +14,8 @@ import {Lang} from '../pages/lang/lang';
 import { Favorite} from '../pages/favorite/favorite';
 import { TranslateModule , TranslateStaticLoader ,TranslateLoader} from 'ng2-translate';
 import {Http} from "@angular/http";
+import {ProductService} from "../providers/product-service";
+import {MainService} from "../providers/main-service";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -55,7 +57,9 @@ export function createTranslateLoader(http: Http) {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProductService,
+    MainService
   ]
 })
 export class AppModule {}

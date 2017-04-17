@@ -1,4 +1,6 @@
 {
   "Home": "Home",
-  "SignUp" : "SignUp"
+  "SignUp" : "SignUp",
+  "Lang" : "Lang",
+  "Login": "Login"
 }

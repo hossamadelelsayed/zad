@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {TranslateService} from 'ng2-translate';
+import {MainService} from "../../providers/main-service";
 
 @Component({
   selector: 'page-lang',
@@ -19,6 +20,7 @@ export class Lang {
   }
   changeLang(type){
     this.translate.setDefaultLang(type);
+    MainService.lang = type;
     this.navCtrl.push(LoginPage);
   }
 
