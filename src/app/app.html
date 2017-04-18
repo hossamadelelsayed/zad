@@ -1,9 +1,16 @@
 <ion-menu [content]="mycontent">
   <ion-content>
-    <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" class="scroll-content" (click)="openPage(p)">
+    <ion-list *ngIf="customerService.customer == null">
+        <button menuClose ion-item *ngFor="let p of visitorPages" class="scroll-content" (click)="openPage(p)">
+          <ion-icon name="{{p.icon}}"></ion-icon>
           {{ p.title | translate }}
         </button>
+    </ion-list>
+    <ion-list *ngIf="customerService.customer != null">
+      <button menuClose ion-item *ngFor="let p of customerPages" class="scroll-content" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon>
+        {{ p.title | translate }}
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>

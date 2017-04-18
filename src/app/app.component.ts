@@ -1,21 +1,27 @@
 import {Component, ViewChild} from '@angular/core';
-import {Platform, NavController, Nav} from 'ionic-angular';
+import {Platform, NavController, Nav ,ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {Lang } from '../pages/lang/lang';
 import { HomePage } from '../pages/home/home';
 import {Signup} from "../pages/signup/signup";
 import {LoginPage} from "../pages/login/login";
+import {CustomerService} from "../providers/customer-service";
+import {Favorite} from "../pages/favorite/favorite";
+import {Cart} from "../pages/cart/cart";
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any = Lang;
-  public pages : Array<{title: string, icon: string, component: any}>;
+  public visitorPages : Array<{title: string, icon: string, component: any}>;
+  public customerPages : Array<{title: string, icon: string, component: any}>;
   constructor(platform: Platform
     , statusBar: StatusBar
     , splashScreen: SplashScreen
+    , private customerService :CustomerService
+    , private toastCtrl : ToastController
     /*, public navCtrl : NavController*/
     ) {
     platform.ready().then(() => {
@@ -26,18 +32,35 @@ export class MyApp {
     });
 
 
-    this.pages = [
+    this.visitorPages = [
       { title: 'Home', icon: 'home',component: HomePage},
-      { title: 'SignUp', icon: 'home',component: Signup },
-      { title: 'Login', icon: 'home',component: LoginPage},
+      { title: 'SignUp', icon: 'log-in',component: Signup },
+      { title: 'Login', icon: 'log-in',component: LoginPage},
       { title: 'Lang', icon: 'home',component: Lang },
-
+    ];
+    this.customerPages = [
+      { title: 'Home', icon: 'home',component: HomePage},
+      { title: 'Favorite', icon: 'heart',component: Favorite },
+      { title: 'Cart', icon: 'cart',component: Cart },
+      { title: 'LogOut', icon: 'log-out',component: HomePage},
+      { title: 'Lang', icon: 'home',component: Lang },
     ]
   }
   openPage(p:any){
+    if (p.title == 'LogOut') {
+      this.customerService.customer = null;
+      this.presentToast("LogOut Successfully");
+    }
     this.nav.push(p.component);
+
   }
 
-
+  presentToast(txt:string) {
+    let toast = this.toastCtrl.create({
+      message: txt,
+      duration: 3000
+    });
+    toast.present();
+  }
 }
 

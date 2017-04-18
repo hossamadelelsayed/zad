@@ -3,7 +3,7 @@
     <ion-navbar>
       <ion-icon class="right" ios="ios-cart" md="md-cart" (click)="favorite()"></ion-icon>
       <img src="assets/imgs/Untitled-2.png">
-      <ion-icon class="left" ios="ios-menu" md="md-menu" (click)="gotolog()"></ion-icon>
+      <ion-icon class="left" ios="ios-menu" md="md-menu"></ion-icon>
     </ion-navbar>
   </ion-title>
 </ion-header>
@@ -61,8 +61,8 @@
       <ion-col col-6 *ngFor="let product of products">
         <div class="product">
         <img class="proimg" src="{{MainService.imageBaseUrl+product.images[0].name}}">
-        <ion-icon ios="ios-heart-outline" md="md-heart-outline"class="hearticon"></ion-icon>
-        <div class="chartdiv">
+        <ion-icon *ngIf="customerService.customer != null" ios="ios-heart-outline" md="md-heart-outline"class="hearticon" (click)="favoriteItemAdd(product.id)"></ion-icon>
+        <div class="chartdiv" (click)="CartItemAdd(product.id)">
           <span class="spannum">9</span>
           <ion-icon ios="ios-add-circle" md="md-add-circle" class="add"></ion-icon>
           <ion-icon  ios="ios-cart" md="md-cart" class="cart"> </ion-icon>
@@ -70,7 +70,7 @@
       </div>
         <div>
           <span class="spanleft">{{product.nameas}}</span>
-          <span class="spanright">{{product.price}}</span>
+          <span class="spanright">{{product.price}} SAR</span>
         </div>
       </ion-col>
     </ion-row>
@@ -84,11 +84,11 @@
       <ion-col col-8>
         <div>
           <h5>{{product.nameas}}</h5>
-          <ion-icon class="heart" ios="ios-heart-outline" md="md-heart-outline"></ion-icon>
+          <ion-icon *ngIf="customerService.customer != null" class="heart" ios="ios-heart-outline" md="md-heart-outline" (click)="favoriteItemAdd(product.id)"></ion-icon>
         </div>
         <div class="lastdiv">
-          <span class="itemprice">{{product.price}}</span>
-          <div class="menucart">
+          <span class="itemprice">{{product.price}} ASR</span>
+          <div class="menucart" (click)="CartItemAdd(product.id)">
             <span>9</span>
             <ion-icon class="add" ios="ios-add-circle" md="md-add-circle"></ion-icon>
             <ion-icon  class="cart" ios="ios-cart" md="md-cart"> </ion-icon>

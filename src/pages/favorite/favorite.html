@@ -9,26 +9,24 @@
 
 
 <ion-content>
-    <ion-row class="menurow">
+    <ion-row  *ngFor="let favorite of favorites" class="menurow">
         <ion-col col-4>
-          <img class="menuimg" src="assets/imgs/slider.jpg" (click)="details()">
+          <img class="menuimg" src="{{MainService.imageBaseUrl+favorite.image}}" (click)="details()">
         </ion-col>
 
       <ion-col col-8>
           <div>
-            <h5>Dream Waver</h5>
-            <ion-icon class="heart" ios="ios-heart" md="md-heart"></ion-icon>
+            <h5>{{favorite.product.name}}</h5>
+            <ion-icon class="heart" ios="ios-heart" md="md-heart" (click)="favoriteItemAdd(favorite.product.id)"></ion-icon>
           </div>
-
           <div class="lastdiv">
-              <span class="itemprice">35 SAR</span>
-              <div class="menucart">
+              <span class="itemprice">{{favorite.product.price}} SAR</span>
+              <div class="menucart" (click)="favoriteDetailsMove(favorite.id)">
                 <span>9</span>
-                  <ion-icon class="add" ios="ios-add-circle" md="md-add-circle"></ion-icon>
-                <ion-icon  class="cart" ios="ios-cart" md="md-cart"> </ion-icon>
+                <ion-icon class="add" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+                <ion-icon  class="cart" ios="ios-cart" md="md-cart" > </ion-icon>
               </div>
          </div>
       </ion-col>
  </ion-row>
-
 </ion-content>

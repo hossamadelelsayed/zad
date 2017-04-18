@@ -11,8 +11,8 @@ import {MainService} from "./main-service";
 */
 @Injectable()
 export class ProductService{
-  public baseUrl : string = MainService.baseUrl;
-  public productGetUrl : string = this.baseUrl+"api/product/get?lang=";
+  //public baseUrl : string = MainService.baseUrl;
+  public productGetUrl : string = MainService.baseUrl+"api/product/get?lang=";
   constructor(public http: Http) {
   }
   productGet()

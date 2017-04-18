@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams , ToastController} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { Signup } from '../signup/signup';
 import { Productdetails } from '../productdetails/productdetails';
 import { HomePage } from '../home/home';
+import {CustomerService} from "../../providers/customer-service";
 
 
 @Component({
@@ -11,22 +12,47 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController,public navParams: NavParams) {
+  public customer = {};
+  constructor(public navCtrl: NavController,
+              public alertCtrl: AlertController,
+              public navParams: NavParams,
+              private customerService: CustomerService ,
+              private toastCtrl : ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
-  gotolog(){
-  this.navCtrl.push(Signup);
-}
-  gotonext(){
-    this.navCtrl.push(HomePage)
+  goToSignUp(){
+    this.navCtrl.push(Signup);
   }
+  gotolog(){
+    this.customerService.customerLogin(this.customer).subscribe(
+      (customer)=>{
+        if(customer.error)
+        {
+          // return with errors
+          this.presentToast(customer.error);
+        }
+        else
+        {
+          // success
+          this.customerService.customer = customer;
+          this.navCtrl.setRoot(HomePage);
+          console.log(this.customerService.customer);
+          this.presentToast("Success Login");
+        }
 
-    showPrompt() {
+      });
+}
+  presentToast(txt:string) {
+    let toast = this.toastCtrl.create({
+      message: txt,
+      duration: 3000
+    });
+    toast.present();
+  }
+   showPrompt() {
     let prompt = this.alertCtrl.create({
       title: 'Forget Password',
       message: "Enter you Email to reset password",

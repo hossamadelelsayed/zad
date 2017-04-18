@@ -16,6 +16,10 @@ import { TranslateModule , TranslateStaticLoader ,TranslateLoader} from 'ng2-tra
 import {Http} from "@angular/http";
 import {ProductService} from "../providers/product-service";
 import {MainService} from "../providers/main-service";
+import {CustomerService} from "../providers/customer-service";
+import {Cart} from "../pages/cart/cart";
+import {FavoriteService} from "../providers/favorite-service";
+import {OrderService} from "../providers/order-service";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -32,6 +36,7 @@ export function createTranslateLoader(http: Http) {
     Productdetails,
     Lang,
     Favorite,
+    Cart
   ],
   imports: [
     BrowserModule,
@@ -52,14 +57,18 @@ export function createTranslateLoader(http: Http) {
     Contact,
     Productdetails,
     Lang,
-    Favorite
+    Favorite,
+    Cart
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductService,
-    MainService
+    MainService,
+    CustomerService,
+    FavoriteService,
+    OrderService
   ]
 })
 export class AppModule {}
