@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>My Favorites</ion-title>
+    <ion-title>{{'Favorite' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,7 +11,7 @@
 <ion-content>
     <ion-row  *ngFor="let favorite of favorites" class="menurow">
         <ion-col col-4>
-          <img class="menuimg" src="{{MainService.imageBaseUrl+favorite.image}}" (click)="details()">
+          <img class="menuimg" src="{{MainService.imageBaseUrl+favorite.image}}" (click)="productDetails(favorite.product)">
         </ion-col>
 
       <ion-col col-8>

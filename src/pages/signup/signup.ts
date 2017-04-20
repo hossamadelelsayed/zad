@@ -33,6 +33,7 @@ export class Signup {
         {
           // success
           this.customerService.customer = customer;
+          this.customerService.customerStorageSave(customer);
           this.navCtrl.setRoot(HomePage);
           console.log(this.customerService.customer);
           this.presentToast("Success Register");

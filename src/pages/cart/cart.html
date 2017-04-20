@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>My Cart</ion-title>
+    <ion-title>{{'Cart' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,7 +11,7 @@
 <ion-content>
     <ion-row *ngFor="let odetails of cart" class="menurow">
         <ion-col col-4>
-          <img class="menuimg" src="{{MainService.imageBaseUrl+odetails.image}}"  (click)="details()">
+          <img class="menuimg" src="{{MainService.imageBaseUrl+odetails.image}}"  (click)="productDetails(odetails.product)">
         </ion-col>
 
       <ion-col col-8>
@@ -19,16 +19,17 @@
             <h5>{{odetails.product.name}}</h5>
             <!--<ion-icon class="heart" ios="ios-heart" md="md-heart"></ion-icon>-->
           </div>
-
           <div class="lastdiv">
               <span class="itemprice">{{odetails.product.price}} SAR</span>
-              <!--<div class="menucart">
-                <span>9</span>
-                  <ion-icon class="add" ios="ios-add-circle" md="md-add-circle"></ion-icon>
-                <ion-icon  class="cart" ios="ios-cart" md="md-cart"> </ion-icon>
-              </div>-->
+              <div class="menucart">
+                <span>{{odetails.quantity}}</span>
+                  <ion-icon class="add" ios="ios-remove-circle" md="md-remove-circle" (click)="cartItemDel(odetails.id)"></ion-icon>
+                  <ion-icon  class="cart" ios="ios-cart" md="md-cart"> </ion-icon>
+              </div>
          </div>
       </ion-col>
  </ion-row>
-
+  <ion-row>
+    <button *ngIf="cart?.length > 0" ion-button color="dark2" block (click)="confirmCart()">{{ 'Confirm' | translate }}</button>
+  </ion-row>
 </ion-content>

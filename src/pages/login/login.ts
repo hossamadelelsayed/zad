@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams , ToastController} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { Signup } from '../signup/signup';
-import { Productdetails } from '../productdetails/productdetails';
 import { HomePage } from '../home/home';
 import {CustomerService} from "../../providers/customer-service";
+
 
 
 @Component({
@@ -38,6 +38,7 @@ export class LoginPage {
         {
           // success
           this.customerService.customer = customer;
+          this.customerService.customerStorageSave(customer);
           this.navCtrl.setRoot(HomePage);
           console.log(this.customerService.customer);
           this.presentToast("Success Login");

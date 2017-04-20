@@ -38,8 +38,48 @@ export class Cart {
       //console.log(res);
     });
   }
-  details(){
-    this.navCtrl.push(Productdetails);
+  productDetails(product)
+  {
+    this.navCtrl.push(Productdetails,product);
   }
+  confirmCart(){
+    let customer={
+      customer_id:this.customerService.customer.id
+    };
+    this.orderService.cartConfirm(customer).subscribe((res)=>{
+      //handling
+      if(res.success){
+        this.getCartDetails();
+        this.presentToast(res.success);
+      }
+      else{
+        this.presentToast(res.error);
+      }
 
+    });
+  }
+  presentToast(txt:string) {
+    let toast = this.toastCtrl.create({
+      message: txt,
+      duration: 3000
+    });
+    toast.present();
+  }
+  cartItemDel(odetails_id)
+  {
+    let item={
+      odetails_id:odetails_id
+    };
+    this.orderService.cartItemDel(item).subscribe((res)=>{
+      //handling
+      if(res.success){
+        this.getCartDetails();
+        this.presentToast(res.success);
+      }
+      else{
+        this.presentToast(res.error);
+      }
+
+    });
+  }
 }

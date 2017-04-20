@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import {NavController, ToastController} from 'ionic-angular';
+import {NavController, ToastController, MenuController} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { Lang } from '../lang/lang';
 import { Productdetails } from '../productdetails/productdetails';
-import { Favorite } from '../favorite/favorite';
 import {ProductService} from "../../providers/product-service";
 import {MainService} from "../../providers/main-service";
 import {FavoriteService} from "../../providers/favorite-service";
 import {CustomerService} from "../../providers/customer-service";
 import {OrderService} from "../../providers/order-service";
+import {Cart} from "../cart/cart";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,19 +17,30 @@ import {OrderService} from "../../providers/order-service";
 export class HomePage {
   public MainService = MainService;
   public products : any = null;
+  public productNews : any = null;
   constructor(public navCtrl: NavController
               ,public alertCtrl: AlertController
               ,public productService : ProductService
               ,public toastCtrl: ToastController
               ,public favoriteService: FavoriteService
               ,public orderService: OrderService
-              ,public customerService: CustomerService) {
+              ,public customerService: CustomerService
+              ,public menuCtrl: MenuController) {
 
   }
   ionViewWillEnter(){
     this.productService.productGet().subscribe((res)=>{
       this.products = res;
     });
+    this.productService.productNewsGet().subscribe((res)=>{
+      this.productNews = res;
+      console.log(res);
+    });
+
+  }
+  productDetails(product)
+  {
+    this.navCtrl.push(Productdetails,product);
   }
   gotolog(){
     this.navCtrl.push(LoginPage);
@@ -38,8 +49,8 @@ export class HomePage {
   {
     this.navCtrl.push(Lang);
   }
-  favorite(){
-    this.navCtrl.push(Favorite);
+  cart(){
+    this.navCtrl.push(Cart);
   }
 
   CartItemAdd(product_id){
@@ -102,6 +113,9 @@ export class HomePage {
       }
     });
     alert.present();
+  }
+  toggleMenu() {
+    this.menuCtrl.toggle();
   }
 }
 

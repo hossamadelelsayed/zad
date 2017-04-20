@@ -41,7 +41,19 @@
         border-radius: 10px;
         color: #000;
 }
-
+@font-face {
+  font-family: "JF Flat Regular";
+  src: url('../assets/fonts/JF-Flat-regular.eot');
+  src: url('../assets/fonts/JF-Flat-regular.eot?#iefix') format('embedded-opentype'),
+  url('../assets/fonts/JF-Flat-regular.svg#JF Flat Regular') format('svg'),
+  url('../assets/fonts/JF-Flat-regular.woff') format('woff'),
+  url('../assets/fonts/JF-Flat-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: 'JF Flat Regular';
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

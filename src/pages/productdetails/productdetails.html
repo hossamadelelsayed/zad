@@ -8,28 +8,22 @@
 
 <ion-content>
   <ion-slides pager>
-    <ion-slide>
-      <img src="assets/imgs/slider.jpg">
-    </ion-slide>
-    <ion-slide>
-      <img src="assets/imgs/slider1.jpg">
-    </ion-slide>
-    <ion-slide>
-      <img src="assets/imgs/slider2.jpg">
+    <ion-slide *ngFor="let image of product.images">
+      <img src="{{MainService.imageBaseUrl+image.name}}">
     </ion-slide>
   </ion-slides>
 
      <ion-list>
        <ion-item>
-         <h5>Dream Daiet Waver</h5>
-         <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+         <h5>{{product.name}}</h5>
+         <ion-icon ios="ios-heart" md="md-heart" (click)="favoriteItemAdd(product.id)"></ion-icon>
        </ion-item>
        <ion-item>
-        <span>35 SAR</span>
+        <span>{{product.price}} SAR</span>
        </ion-item>
        <ion-item>
          <h5>Add to Cart</h5>
-          <div class="chartdiv">
+          <div class="chartdiv" (click)="CartItemAdd(product.id)">
             <span>9</span>
               <ion-icon ios="ios-add-circle" md="md-add-circle" class="add"></ion-icon>
              <ion-icon  ios="ios-cart" md="md-cart" class="cart"> </ion-icon>

@@ -13,6 +13,9 @@ import {MainService} from "./main-service";
 export class OrderService {
   public cartDetailsGetUrl : string = MainService.baseUrl+"api/order/cart/details/get";
   public cartItemAddUrl : string = MainService.baseUrl+"api/order/cart/add";
+  public cartConfirmUrl : string = MainService.baseUrl+"api/order/confirm";
+  public cartItemDelUrl : string = MainService.baseUrl+"api/order/details/del";
+
   constructor(public http: Http) {
     console.log('Hello OrderService Provider');
   }
@@ -23,5 +26,13 @@ export class OrderService {
   cartItemAdd(inputs : any){
     inputs.lang = MainService.lang;
     return this.http.post(this.cartItemAddUrl,inputs).map((res) => res.json());
+  }
+  cartConfirm(inputs : any){
+    inputs.lang = MainService.lang;
+    return this.http.post(this.cartConfirmUrl,inputs).map((res) => res.json());
+  }
+  cartItemDel(inputs : any){
+    inputs.lang = MainService.lang;
+    return this.http.post(this.cartItemDelUrl,inputs).map((res) => res.json());
   }
 }

@@ -69,8 +69,9 @@ export class Favorite {
       //console.log(res);
     });
   }
-  details(){
-    this.navCtrl.push(Productdetails);
+  productDetails(product)
+  {
+    this.navCtrl.push(Productdetails,product);
   }
   presentToast(txt:string) {
     let toast = this.toastCtrl.create({

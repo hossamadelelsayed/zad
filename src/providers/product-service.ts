@@ -13,11 +13,17 @@ import {MainService} from "./main-service";
 export class ProductService{
   //public baseUrl : string = MainService.baseUrl;
   public productGetUrl : string = MainService.baseUrl+"api/product/get?lang=";
+  public productNewsGetUrl : string = MainService.baseUrl+"api/product/news/get?lang=";
   constructor(public http: Http) {
   }
   productGet()
   {
     return this.http.get(this.productGetUrl+MainService.lang).map((res) => res.json());
   }
+  productNewsGet()
+  {
+    return this.http.get(this.productNewsGetUrl+MainService.lang).map((res) => res.json());
+  }
+
 
 }

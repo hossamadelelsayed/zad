@@ -9,6 +9,9 @@ import {LoginPage} from "../pages/login/login";
 import {CustomerService} from "../providers/customer-service";
 import {Favorite} from "../pages/favorite/favorite";
 import {Cart} from "../pages/cart/cart";
+import {Contact} from "../pages/contact/contact";
+import {Editaccount} from "../pages/editaccount/editaccount";
+import {HistoryPage} from "../pages/history/history";
 @Component({
   templateUrl: 'app.html'
 })
@@ -29,8 +32,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      // chseck for any customer
+      this.customerService.customerStorageGet();
     });
-
 
     this.visitorPages = [
       { title: 'Home', icon: 'home',component: HomePage},
@@ -40,7 +44,10 @@ export class MyApp {
     ];
     this.customerPages = [
       { title: 'Home', icon: 'home',component: HomePage},
+      { title: 'My Account', icon: 'contact',component: Editaccount },
+      { title: 'Contact US', icon: 'contacts',component: Contact },
       { title: 'Favorite', icon: 'heart',component: Favorite },
+      { title: 'Order History', icon: 'calendar',component: HistoryPage },
       { title: 'Cart', icon: 'cart',component: Cart },
       { title: 'LogOut', icon: 'log-out',component: HomePage},
       { title: 'Lang', icon: 'home',component: Lang },
@@ -48,7 +55,8 @@ export class MyApp {
   }
   openPage(p:any){
     if (p.title == 'LogOut') {
-      this.customerService.customer = null;
+      this.customerService.customer = null;//temproray you have to delete it soon
+      this.customerService.customerStorageErase();
       this.presentToast("LogOut Successfully");
     }
     this.nav.push(p.component);

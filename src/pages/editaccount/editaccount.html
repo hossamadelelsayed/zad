@@ -7,26 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Editaccount</ion-title>
+    <ion-title>{{ 'My Account' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-      <form class="forma">
-     <ion-input type="text"placeholder="Username"> </ion-input>
-    <ion-row>
-     <ion-col col-9><ion-input type="text"placeholder="Phone" style="width: 100%;margin-left: 5%;"> </ion-input></ion-col>
-     <ion-col col-3><ion-input type="number"style="margin-left: 33%;width: 90%;"> </ion-input></ion-col>    
-    </ion-row>
-       
-         <ion-input type="email"placeholder="Email"> </ion-input>
-        
-         <ion-input type="password" placeholder="Password"></ion-input> 
-         <ion-input type="password" placeholder="Re-Password"></ion-input> 
-
-         <button ion-button class="agreebtn" (click)="gotolog()">Edit my Account</button>
+   <form class="forma" #f="ngForm">
+      <ion-input [(ngModel)]="user.user_name" name="user_name" required type="text"placeholder="Username"> </ion-input>
+      <ion-row>
+       <ion-col col-9><ion-input [(ngModel)]="user.mobile" required name="mobile" type="text"placeholder="Phone" style="width: 100%;margin-left: 5%;"> </ion-input></ion-col>
+       <ion-col col-3><ion-input type="number"style="margin-left: 33%;width: 90%;"> </ion-input></ion-col>
+      </ion-row>
+         <ion-input [(ngModel)]="user.email" name="email" required type="email"placeholder="Email"> </ion-input>
+         <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
+         <ion-input type="password" ngModel [(ngModel)]="user.password" name="repassword" placeholder="Re-Password"></ion-input>
+        <button [disabled]="!f.valid" ion-button class="agreebtn" (click)="customerUpdate()">
+          {{ 'Edit' | translate }} {{ 'My Account' | translate }}
+        </button>
     </form>
 
 </ion-content>

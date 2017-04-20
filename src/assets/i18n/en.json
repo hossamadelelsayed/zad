@@ -2,5 +2,15 @@
   "Home": "Home",
   "SignUp" : "SignUp",
   "Lang" : "Lang",
-  "Login": "Login"
+  "Login": "Login",
+  "Favorite":"Favorite",
+  "Cart":"Cart",
+  "SAR":"SAR",
+  "My Account":"My Account",
+  "Contact US":"Contact US",
+  "Edit":"Edit",
+  "Done":"Done",
+  "LogOut":"LogOut",
+  "Confirm":"Confirm",
+  "Order History":"Order History"
 }
