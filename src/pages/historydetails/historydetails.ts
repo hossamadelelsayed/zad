@@ -12,13 +12,12 @@ export class Historydetails {
   public MainService :MainService = MainService;
   public order :any ;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.order = navParams.data;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Historydetails');
+    this.order = this.navParams.data;
   }
-edit(){
-  this.navCtrl.push(Editproduct);
-}
+  edit(detail :any){
+    this.navCtrl.push(Editproduct,detail);
+  }
 }

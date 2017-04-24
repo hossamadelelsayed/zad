@@ -16,13 +16,16 @@
 <ion-content>
     <form class="forma" #f="ngForm">
      <ion-input name="user_name" [(ngModel)]="customer.user_name" type="text"placeholder="Username" required> </ion-input>
-    <ion-row>
-     <ion-col col-9>
-       <ion-input name="mobile" [(ngModel)]="customer.mobile" type="text"placeholder="Mobile" style="width: 100%;margin-left: 5%;" required> </ion-input>
-     </ion-col>
-     <ion-col col-3><ion-input name="code" [(ngModel)]="customer.code"  type="number"style="margin-left: 33%;width: 90%;" required> </ion-input></ion-col>
-    </ion-row>
+      <ion-input name="mobile" [(ngModel)]="customer.mobile" type="number"placeholder="Mobile"  required> </ion-input>
 
+      <!--
+      <ion-row>
+       <ion-col col-9>
+         <ion-input name="mobile" [(ngModel)]="customer.mobile" type="text"placeholder="Mobile" style="width: 100%;margin-left: 5%;" required> </ion-input>
+       </ion-col>
+       <ion-col col-3><ion-input name="code" [(ngModel)]="customer.code"  type="number"style="margin-left: 33%;width: 90%;" required> </ion-input></ion-col>
+      </ion-row>
+  -->
          <ion-input name="email" type="email"placeholder="Email" [(ngModel)]="customer.email" required> </ion-input>
          <ion-input name="password" type="password" placeholder="Password" [(ngModel)]="customer.password" required></ion-input>
          <ion-input name="repassword" type="password" placeholder="Re-Password" [(ngModel)]="customer.repassword" required></ion-input>

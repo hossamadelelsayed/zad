@@ -23,9 +23,12 @@
          <ion-input [(ngModel)]="user.email" name="email" required type="email"placeholder="Email"> </ion-input>
          <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
          <ion-input type="password" ngModel [(ngModel)]="user.password" name="repassword" placeholder="Re-Password"></ion-input>
-        <button [disabled]="!f.valid" ion-button class="agreebtn" (click)="customerUpdate()">
+        <button *ngIf="this.customerService.customer != null" [disabled]="!f.valid" ion-button class="agreebtn" (click)="customerUpdate()">
           {{ 'Edit' | translate }} {{ 'My Account' | translate }}
         </button>
+         <button *ngIf="this.repService.rep != null" [disabled]="!f.valid" ion-button class="agreebtn" (click)="repUpdate()">
+           {{ 'Edit' | translate }} {{ 'My Account' | translate }}
+         </button>
     </form>
 
 </ion-content>

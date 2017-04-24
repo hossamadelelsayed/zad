@@ -4,6 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { Signup } from '../signup/signup';
 import { HomePage } from '../home/home';
 import {CustomerService} from "../../providers/customer-service";
+import {RepService} from "../../providers/rep-service";
 
 
 
@@ -17,6 +18,7 @@ export class LoginPage {
               public alertCtrl: AlertController,
               public navParams: NavParams,
               private customerService: CustomerService ,
+              private repService: RepService ,
               private toastCtrl : ToastController) {
   }
 
@@ -28,19 +30,27 @@ export class LoginPage {
   }
   gotolog(){
     this.customerService.customerLogin(this.customer).subscribe(
-      (customer)=>{
-        if(customer.error)
+      (user)=>{
+        if(user.error)
         {
           // return with errors
-          this.presentToast(customer.error);
+          this.presentToast(user.error);
         }
         else
         {
-          // success
-          this.customerService.customer = customer;
-          this.customerService.customerStorageSave(customer);
+          if(user.type == this.customerService.CustomerCode)
+          {
+            // success
+            this.customerService.customer = user;
+            this.customerService.customerStorageSave(user);
+          }
+          else if(user.type == this.repService.RepCode)
+          {
+            // success
+            this.repService.rep = user;
+            this.repService.repStorageSave(user);
+          }
           this.navCtrl.setRoot(HomePage);
-          console.log(this.customerService.customer);
           this.presentToast("Success Login");
         }
 

@@ -1,0 +1,42 @@
+page-createorder {
+.divheader{
+   border-radius: 10px;
+   border:1px solid #a5642a;
+   width: 95%;
+   margin-left: auto;
+   margin-right:auto;
+   margin-top: 10px;
+   height: 100%;
+    }
+.row{
+    text-align: center;
+    margin-top: 30%;
+ h5{
+     margin-left:10%;
+         margin-top: 1rem !important;
+ }
+}
+.list{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 45px;
+    
+    .item{
+        background-color: transparent;
+        .label{
+            color:black;
+            font-weight: 500;
+            font-size: 1.8rem;
+            }
+    }
+}
+.button{
+        text-transform: none;
+        margin-left: auto;
+        width: 65%;
+        margin-right: auto;
+        background-color: chocolate;
+        border-radius: 15px;
+}
+}

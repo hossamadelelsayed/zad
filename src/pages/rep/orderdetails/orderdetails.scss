@@ -1,0 +1,52 @@
+page-orderdetails {
+  .divheader{
+   border-radius: 10px;
+   border:1px solid #a5582a;
+   width: 95%;
+   margin-left: auto;
+   margin-right:auto;
+   margin-top: 10px;
+    }
+.row{
+    text-align: center;
+    margin-top: 10px;
+span{
+    width: 50%;
+    margin-top: 13px;
+}
+}
+.list{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+
+    .item{
+        background-color: transparent;
+        .label{color:black}
+    }
+}
+ .left{
+     float: left;
+ }
+
+ .details{
+    border: 1px solid #a5582a;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+ }
+ .titlerow{
+     border-bottom: 2px solid #a5582a;
+
+ }
+ .footbtn{
+     width:70%;
+     background-color: #a5582a;
+     border-radius: 10px;
+     margin-left: auto;
+     margin-right:auto;
+ }
+}

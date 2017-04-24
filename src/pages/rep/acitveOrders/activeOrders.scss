@@ -1,0 +1,33 @@
+page-active-orders {
+
+
+.headerrow{
+       padding: 10px;
+       text-align: center;
+       border-bottom: 2px solid #713820;
+       font-weight: bold;
+       background-color: burlywood;
+}
+.contentrow{
+    padding: 5px;
+    font-size: smaller;
+    text-align: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: 1px solid #713820 ;
+    .col{
+        border-right: 1px solid #713820;
+        padding:10px;
+    }
+}
+.colshow{
+     border-right:none !important;
+.show{
+        margin-left: 4%;
+        margin-top: 6px;
+        height: 25px;
+        padding: 10px !important;
+        border-color: #e89a2a !important;
+        color: #8e4005 !important;
+}}
+}

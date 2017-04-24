@@ -18,9 +18,14 @@ export class CustomerService {
   public customerLoginUrl : string = MainService.baseUrl+"api/customer/login";
   public customerUpdateUrl : string = MainService.baseUrl+"api/user/update";
   public customerOrdersUrl : string = MainService.baseUrl+"api/customer/orders/get";
+  public customersGetUrl : string = MainService.baseUrl+"api/customer/all/get?lang=";
+
   constructor(public http: Http,
               private nativeStorage: NativeStorage) {
     console.log('Hello CustomerService Provider');
+  }
+  customersGet(){
+    return this.http.get(this.customersGetUrl+MainService.lang).map((res) => res.json());
   }
   customerRegister(customer:any)
   {

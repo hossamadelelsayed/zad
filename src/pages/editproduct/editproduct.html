@@ -15,14 +15,14 @@
 
 <ion-content>
   <div class="proimg">
-  <img src="assets/imgs/slider.jpg">
+  <img src="{{MainService.imageBaseUrl+detail?.product.images[0].name}}">
   </div>
    <div class="iconsdiv">
-      <ion-icon ios="ios-remove-circle" md="md-remove-circle"></ion-icon>
-      <span>4 KG</span>
-      <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-      <button ion-button block>Save Edit</button>
-      <button ion-button block>Delete Product</button>
+      <ion-icon ios="ios-remove-circle" md="md-remove-circle" (click)="minus()"></ion-icon>
+      <span>{{counter}}</span>
+      <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="plus()"></ion-icon>
+      <button ion-button block>{{'Save' | translate}}</button>
+      <button ion-button block>{{'Delete' | translate}}</button>
    </div>
 
 </ion-content>

@@ -12,6 +12,8 @@ import {Cart} from "../pages/cart/cart";
 import {Contact} from "../pages/contact/contact";
 import {Editaccount} from "../pages/editaccount/editaccount";
 import {HistoryPage} from "../pages/history/history";
+import {RepService} from "../providers/rep-service";
+import {ActiveOrdersPage} from "../pages/rep/acitveOrders/activeOrders";
 @Component({
   templateUrl: 'app.html'
 })
@@ -20,10 +22,12 @@ export class MyApp {
   rootPage:any = Lang;
   public visitorPages : Array<{title: string, icon: string, component: any}>;
   public customerPages : Array<{title: string, icon: string, component: any}>;
+  public repPages : Array<{title: string, icon: string, component: any}>;
   constructor(platform: Platform
     , statusBar: StatusBar
     , splashScreen: SplashScreen
     , private customerService :CustomerService
+    , private repService : RepService
     , private toastCtrl : ToastController
     /*, public navCtrl : NavController*/
     ) {
@@ -34,6 +38,7 @@ export class MyApp {
       splashScreen.hide();
       // chseck for any customer
       this.customerService.customerStorageGet();
+      this.repService.repStorageGet();
     });
 
     this.visitorPages = [
@@ -52,11 +57,26 @@ export class MyApp {
       { title: 'LogOut', icon: 'log-out',component: HomePage},
       { title: 'Lang', icon: 'home',component: Lang },
     ]
+    this.repPages = [
+      { title: 'My Account', icon: 'contact',component: Editaccount },
+      { title: 'Order History', icon: 'calendar',component: HistoryPage },
+      { title: 'Active Orders', icon: 'calendar',component: ActiveOrdersPage },
+      { title: 'LogOut', icon: 'log-out',component: HomePage},
+      { title: 'Lang', icon: 'home',component: Lang },
+    ]
   }
   openPage(p:any){
     if (p.title == 'LogOut') {
-      this.customerService.customer = null;//temproray you have to delete it soon
-      this.customerService.customerStorageErase();
+      if(this.customerService.customer != null)
+      {
+        this.customerService.customer = null;//temproray you have to delete it soon
+        this.customerService.customerStorageErase();
+      }
+      else if(this.repService.rep != null)
+      {
+        this.repService.rep = null;//temproray you have to delete it soon
+        this.repService.repStorageErase();
+      }
       this.presentToast("LogOut Successfully");
     }
     this.nav.push(p.component);

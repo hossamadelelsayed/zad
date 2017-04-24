@@ -12,5 +12,8 @@
   "Done":"تم بنجاح",
   "LogOut":"خروج",
   "Confirm":"تأكيد",
-  "Order History":"الطلبات السابقة"
+  "Order History":"الطلبات السابقة",
+  "Save":"تأكيد",
+  "Delete":"حذف",
+  "Active Orders":"الطلبات المفتوحة"
 }

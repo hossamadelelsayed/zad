@@ -24,7 +24,10 @@ import {NativeStorage} from "@ionic-native/native-storage";
 import {HistoryPage} from "../pages/history/history";
 import {Historydetails} from "../pages/historydetails/historydetails";
 import {Editproduct} from "../pages/editproduct/editproduct";
-
+import {RepService} from "../providers/rep-service";
+import {ActiveOrdersPage} from "../pages/rep/acitveOrders/activeOrders";
+import {Createorder} from "../pages/rep/createorder/createorder";
+import {Orderdetails} from "../pages/rep/orderdetails/orderdetails";
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
@@ -43,7 +46,10 @@ export function createTranslateLoader(http: Http) {
     Cart,
     HistoryPage,
     Historydetails,
-    Editproduct
+    Editproduct,
+    ActiveOrdersPage,
+    Createorder,
+    Orderdetails
   ],
   imports: [
     BrowserModule,
@@ -68,7 +74,10 @@ export function createTranslateLoader(http: Http) {
     Cart,
     HistoryPage,
     Historydetails,
-    Editproduct
+    Editproduct,
+    ActiveOrdersPage,
+    Createorder,
+    Orderdetails
   ],
   providers: [
     StatusBar,
@@ -79,7 +88,8 @@ export function createTranslateLoader(http: Http) {
     CustomerService,
     FavoriteService,
     OrderService,
-    NativeStorage
+    NativeStorage,
+    RepService
   ]
 })
 export class AppModule {}
