@@ -4,3 +4,4 @@ export class MainService {
   public static imageBaseUrl : string = MainService.baseUrl+"images/";
   public static  lang : string = 'en';
 }
+

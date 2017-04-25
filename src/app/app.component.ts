@@ -14,6 +14,7 @@ import {Editaccount} from "../pages/editaccount/editaccount";
 import {HistoryPage} from "../pages/history/history";
 import {RepService} from "../providers/rep-service";
 import {ActiveOrdersPage} from "../pages/rep/acitveOrders/activeOrders";
+import {Createorder} from "../pages/rep/createorder/createorder";
 @Component({
   templateUrl: 'app.html'
 })
@@ -61,6 +62,7 @@ export class MyApp {
       { title: 'My Account', icon: 'contact',component: Editaccount },
       { title: 'Order History', icon: 'calendar',component: HistoryPage },
       { title: 'Active Orders', icon: 'calendar',component: ActiveOrdersPage },
+      { title: 'Create Order', icon: 'calendar',component: Createorder },
       { title: 'LogOut', icon: 'log-out',component: HomePage},
       { title: 'Lang', icon: 'home',component: Lang },
     ]
