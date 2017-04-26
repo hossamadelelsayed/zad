@@ -16,14 +16,17 @@
 <ion-content>
   <div class="divheader">
   <ion-row>
-      <span class="left">Receipt Date</span><br><ion-datetime>gjhjkl</ion-datetime>
+      <span class="left">{{'Receipt Date' | translate}}</span><br>
+      <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="order.delivery_date" (ionChange)="updateOrder()"></ion-datetime>
   </ion-row>
 
     <ion-list>
         <ion-item>
-            <ion-label>Customer Name</ion-label>
-            <ion-select>
-              <ion-option *ngFor="let customer of customers" value="{{customer.id}}">{{customer.user.user_name}}</ion-option>
+            <ion-label>{{'Customer Name' | translate}}</ion-label>
+            <ion-select [(ngModel)]="order.customer_id" (ionChange)="updateOrder()">
+              <ion-option
+              *ngFor="let customer of customers" value="{{customer.id}}"
+              [selected]="order.customer_id == customer.id">{{customer.user.user_name}}</ion-option>
             </ion-select>
       </ion-item>
 </ion-list>
@@ -44,18 +47,18 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngFor="let product of products">
+    <ion-row *ngFor="let product of products;let i = index;">
       <ion-col col-3>
         {{product.name}}
       </ion-col>
       <ion-col col-3>
-        10
+        <ion-input #quantity (change)="updateOrderItem(product.id,quantity.value)" name="quantity" type="number" placeholder="quantity" [value]="product.quantity" required></ion-input>
       </ion-col>
       <ion-col col-3>
         {{product.price}} {{ 'SAR' | translate}}
       </ion-col>
       <ion-col col-3>
-        10
+        {{quantity.value * product.price}}
       </ion-col>
     </ion-row>
 
@@ -63,5 +66,5 @@
 
 </ion-content>
 <ion-footer>
-  <button ion-button block class="footbtn"> Order </button>
+  <button ion-button block class="footbtn" (click)="confirmOrder()"> {{'Confirm' | translate}} </button>
 </ion-footer>

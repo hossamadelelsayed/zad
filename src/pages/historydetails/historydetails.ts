@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Editproduct } from '../editproduct/editproduct'
+import { Editproduct } from '../editproduct/editproduct';
 import {MainService} from "../../providers/main-service";
 
 

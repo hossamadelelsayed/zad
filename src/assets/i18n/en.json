@@ -16,5 +16,7 @@
   "Save":"Save",
   "Delete":"Delete",
   "Active Orders":"Active Orders",
-  "Create Order":"Create Order"
+  "Create Order":"Create Order",
+  "Customer Name":"Customer Name",
+  "Receipt Date":"Receipt Date"
 }

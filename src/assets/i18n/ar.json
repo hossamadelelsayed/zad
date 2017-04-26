@@ -16,5 +16,7 @@
   "Save":"تأكيد",
   "Delete":"حذف",
   "Active Orders":"الطلبات المفتوحة",
-  "Create Order":"انشاء طلب"
+  "Create Order":"انشاء طلب",
+  "Customer Name":"اسم العميل",
+  "Receipt Date":"تاريخ التسليم"
 }

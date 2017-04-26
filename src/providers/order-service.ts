@@ -15,7 +15,8 @@ export class OrderService {
   public cartItemAddUrl : string = MainService.baseUrl+"api/order/cart/add";
   public cartConfirmUrl : string = MainService.baseUrl+"api/order/confirm";
   public cartItemDelUrl : string = MainService.baseUrl+"api/order/details/del";
-
+  public orderUpdateUrl : string = MainService.baseUrl+"api/order/update";
+  public updateOrderItemUrl : string = MainService.baseUrl+"api/order/item/update";
   constructor(public http: Http) {
     console.log('Hello OrderService Provider');
   }
@@ -34,5 +35,13 @@ export class OrderService {
   cartItemDel(inputs : any){
     inputs.lang = MainService.lang;
     return this.http.post(this.cartItemDelUrl,inputs).map((res) => res.json());
+  }
+  orderUpdate(inputs : any){
+    inputs.lang = MainService.lang;
+    return this.http.post(this.orderUpdateUrl,inputs).map((res) => res.json());
+  }
+  updateOrderItem(inputs : any){
+    inputs.lang = MainService.lang;
+    return this.http.post(this.updateOrderItemUrl,inputs).map((res) => res.json());
   }
 }

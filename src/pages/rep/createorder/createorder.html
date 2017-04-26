@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>createorder</ion-title>
+    <ion-title>{{'Create Order' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,24 +16,20 @@
 <ion-content>
   <div class="divheader">
   <ion-row>
-   <h5>Receipt Date</h5><ion-datetime>gjhjkl</ion-datetime>
+   <h5>{{'Receipt Date' | translate}}</h5>
+   <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="orderInputs.delivery_date"></ion-datetime>
   </ion-row>
 
     <ion-list>
         <ion-item>
-            <ion-label>Customer Name</ion-label>
-            <ion-select>
-              <ion-option value="nes">Ahmed</ion-option>
-              <ion-option value="n64">Mohamed</ion-option>
-              <ion-option value="ps">ALi </ion-option>
+            <ion-label>{{'Customer Name' | translate}}</ion-label>
+            <ion-select [(ngModel)]="orderInputs.customer_id"> 
+              <ion-option *ngFor="let customer of customers" value="{{customer.id}}">{{customer.user.user_name}}</ion-option>
             </ion-select>
       </ion-item>
 </ion-list>
- 
  <ion-row>
-   <button ion-button (click)="details()">Create Order</button>
+   <button [disabled]="orderInputs.delivery_date == null || orderInputs.customer_id == null" ion-button (click)="createOrder()">{{'Create Order' | translate}}</button>
  </ion-row>
-
   </div>
-
 </ion-content>

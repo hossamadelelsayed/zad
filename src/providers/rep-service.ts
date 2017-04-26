@@ -17,12 +17,20 @@ export class RepService {
   public userUpdateUrl : string = MainService.baseUrl+"api/user/update";
   public RepClosedOrdersGetUrl : string = MainService.baseUrl+"api/rep/closed/orders/get";
   public RepPendingOrdersGetUrl : string = MainService.baseUrl+"api/rep/pending/orders/get";
+  public RepOrderCreateUrl : string = MainService.baseUrl+"api/rep/order/create";
+  public RepOrderProductsUrl : string = MainService.baseUrl+"api/rep/order/products";
   constructor(public http: Http,
               private nativeStorage: NativeStorage) {
     console.log('Hello RepService Provider');
   }
-
-
+  repOrderProducts(order){
+    order.lang = MainService.lang;
+    return this.http.post(this.RepOrderProductsUrl, order).map((res) => res.json());
+  }
+  repOrderCreate(rep){
+    rep.lang = MainService.lang;
+    return this.http.post(this.RepOrderCreateUrl, rep).map((res) => res.json());
+  }
   repClosedOrdersGet(rep){
     rep.lang = MainService.lang;
     return this.http.post(this.RepClosedOrdersGetUrl, rep).map((res) => res.json());
