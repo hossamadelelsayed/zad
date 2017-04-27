@@ -18,5 +18,14 @@
   "Active Orders":"Active Orders",
   "Create Order":"Create Order",
   "Customer Name":"Customer Name",
-  "Receipt Date":"Receipt Date"
+  "Receipt Date":"Receipt Date",
+  "Name":"Name",
+  "Price":"Price",
+  "Total":"Total",
+  "Quantity":"Quantity",
+  "Details":"Details",
+  "Add New Customer":"Add New Customer",
+  "Cancel":"Cancel",
+  "Order Details":"Order Details",
+  "Date":"Date"
 }

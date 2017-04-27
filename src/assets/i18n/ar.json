@@ -18,5 +18,14 @@
   "Active Orders":"الطلبات المفتوحة",
   "Create Order":"انشاء طلب",
   "Customer Name":"اسم العميل",
-  "Receipt Date":"تاريخ التسليم"
+  "Receipt Date":"تاريخ التسليم",
+  "Name":"الاسم",
+  "Price":"السعر",
+  "Total":"الاجمالى",
+  "Quantity":"الكمية",
+  "Details":"التفاصيل",
+  "Add New Customer":"أضف عميل جديد",
+  "Cancel":"الغاء",
+  "Order Details":"تفاصيل الطلب",
+  "Date":"التاريخ"
 }

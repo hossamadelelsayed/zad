@@ -1,0 +1,25 @@
+<!--
+  Generated template for the Signup page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Add New Customer' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <form class="forma" #f="ngForm">
+        <ion-input name="user_name" [(ngModel)]="customer.user_name" type="text"placeholder="Username" required> </ion-input>
+        <ion-input name="mobile" [(ngModel)]="customer.mobile" type="number"placeholder="Mobile"  required> </ion-input>
+        <ion-input name="email" type="email"placeholder="Email" [(ngModel)]="customer.email" required> </ion-input>
+        <ion-input name="password" type="password" placeholder="Password" [(ngModel)]="customer.password" required></ion-input>
+        <button [disabled]="!f.valid" ion-button class="agreebtn" (click)="addCustomer()">{{'Save' | translate}}</button>
+        <button ion-button class="agreebtn" (click)="closeModal()">{{'Cancel' | translate}}</button>
+    </form>
+</ion-content>
