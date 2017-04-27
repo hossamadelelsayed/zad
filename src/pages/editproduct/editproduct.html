@@ -21,8 +21,8 @@
       <ion-icon ios="ios-remove-circle" md="md-remove-circle" (click)="minus()"></ion-icon>
       <span>{{counter}}</span>
       <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="plus()"></ion-icon>
-      <button ion-button block>{{'Save' | translate}}</button>
-      <button ion-button block>{{'Delete' | translate}}</button>
+      <button ion-button block (click)="saveUpdates()">{{'Save' | translate}}</button>
+      <button ion-button block (click)="delProduct()">{{'Delete' | translate}}</button>
    </div>
 
 </ion-content>

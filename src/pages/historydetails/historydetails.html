@@ -22,7 +22,7 @@
 </ion-row>
 
 
-<ion-row *ngFor="let detail of order?.details" class="contentrow">
+<ion-row *ngFor="let detail of orderDetails" class="contentrow">
     <ion-col *ngIf="order.closed == 0"  col-3 style="padding-top:10px">
       <img src="{{MainService.imageBaseUrl+detail.product.images[0].name}}" (click)="edit(detail)">
     </ion-col>

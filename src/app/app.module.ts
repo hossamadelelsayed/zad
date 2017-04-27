@@ -28,6 +28,7 @@ import {RepService} from "../providers/rep-service";
 import {ActiveOrdersPage} from "../pages/rep/acitveOrders/activeOrders";
 import {Createorder} from "../pages/rep/createorder/createorder";
 import {Orderdetails} from "../pages/rep/orderdetails/orderdetails";
+import {Geolocation} from "@ionic-native/geolocation";
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
@@ -89,6 +90,7 @@ export function createTranslateLoader(http: Http) {
     FavoriteService,
     OrderService,
     NativeStorage,
+    Geolocation,
     RepService
   ]
 })

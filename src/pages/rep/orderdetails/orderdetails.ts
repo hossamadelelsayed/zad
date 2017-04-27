@@ -37,7 +37,6 @@ export class Orderdetails {
   updateOrder(){
     let order = {
       id : this.order.id ,
-      customer_id : this.order.customer_id ,
       delivery_date : this.order.delivery_date
     }
     this.orderService.orderUpdate(order).subscribe((res)=>{
@@ -47,6 +46,24 @@ export class Orderdetails {
        else{
           this.presentToast(res.error);
        }
+    });
+  }
+  updateCustomer(select) {
+    let order = {
+      id : this.order.id ,
+      customer_id : select._values[0],
+      delivery_date : this.order.delivery_date
+    };
+    console.log(select._values[0]);
+    this.orderService.orderUpdate(order).subscribe((res)=>{
+      if(res.success){
+        this.presentToast(res.success);
+        this.order.customer_id = select._values[0];
+
+      }
+      else{
+        this.presentToast(res.error);
+      }
     });
   }
   updateOrderItem(product_id:number,quantity:number)

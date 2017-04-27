@@ -23,7 +23,7 @@
     <ion-list>
         <ion-item>
             <ion-label>{{'Customer Name' | translate}}</ion-label>
-            <ion-select [(ngModel)]="order.customer_id" (ionChange)="updateOrder()">
+            <ion-select #select [ngModel]="order.customer_id" (ionChange)="updateCustomer(select)">
               <ion-option
               *ngFor="let customer of customers" value="{{customer.id}}"
               [selected]="order.customer_id == customer.id">{{customer.user.user_name}}</ion-option>

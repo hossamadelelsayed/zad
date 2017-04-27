@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {MainService} from "./main-service";
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Observable } from 'rxjs/Rx';
+import { Geolocation } from '@ionic-native/geolocation';
 
 /*
   Generated class for the RepService provider.
@@ -12,6 +14,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 */
 @Injectable()
 export class RepService {
+  private timer;
   public rep:any = null;
   public readonly RepCode : number = 2 ;
   public userUpdateUrl : string = MainService.baseUrl+"api/user/update";
@@ -19,9 +22,38 @@ export class RepService {
   public RepPendingOrdersGetUrl : string = MainService.baseUrl+"api/rep/pending/orders/get";
   public RepOrderCreateUrl : string = MainService.baseUrl+"api/rep/order/create";
   public RepOrderProductsUrl : string = MainService.baseUrl+"api/rep/order/products";
+  public RepPositionSendUrl : string = MainService.baseUrl+"api/rep/position/send";
+
   constructor(public http: Http,
-              private nativeStorage: NativeStorage) {
+              private nativeStorage: NativeStorage,
+              private geolocation: Geolocation) {
     console.log('Hello RepService Provider');
+  }
+  repPositionSend(lat:number,lng:number){
+    let inputs = {
+      lat : lat ,
+      lng : lng ,
+      rep_id : this.rep.id ,
+      lang : MainService.lang
+    };
+    return this.http.post(this.RepPositionSendUrl, inputs).map((res) => res.json());
+  }
+  getAndSendRepPosition(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+       this.repPositionSend(resp.coords.latitude,resp.coords.longitude).subscribe((res)=>{
+         console.log(res.success)
+       });
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  }
+  timerInit(){
+
+    this.timer = Observable.timer(1000, 5000);
+    // subscribing to a observable returns a subscription object
+    this.timer.subscribe(() => {
+      this.getAndSendRepPosition();
+    });
   }
   repOrderProducts(order){
     order.lang = MainService.lang;
@@ -45,6 +77,7 @@ export class RepService {
         () => {
           this.rep = rep;
           console.log('Rep Is Stored!');
+          this.timerInit();
         },
         error => console.error('Error storing item', error)
       );
@@ -66,6 +99,7 @@ export class RepService {
           this.rep = rep;
           console.log('Rep Is Geted!');
           //return customer
+          this.timerInit();
         },
         error => console.error(error)
       );
