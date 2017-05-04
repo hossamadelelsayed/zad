@@ -14,11 +14,20 @@ export class ProductService{
   //public baseUrl : string = MainService.baseUrl;
   public productGetUrl : string = MainService.baseUrl+"api/product/get?lang=";
   public productNewsGetUrl : string = MainService.baseUrl+"api/product/news/get?lang=";
+  public categoryGetUrl : string = MainService.baseUrl+"api/category/get?lang=";
   constructor(public http: Http) {
+  }
+  categoryGet()
+  {
+    return this.http.get(this.categoryGetUrl+MainService.lang).map((res) => res.json());
   }
   productGet()
   {
     return this.http.get(this.productGetUrl+MainService.lang).map((res) => res.json());
+  }
+  productGetByCategory(category_id)
+  {
+    return this.http.get(this.productGetUrl+MainService.lang+'&category_id='+category_id).map((res) => res.json());
   }
   productNewsGet()
   {

@@ -15,6 +15,7 @@ import {HistoryPage} from "../pages/history/history";
 import {RepService} from "../providers/rep-service";
 import {ActiveOrdersPage} from "../pages/rep/acitveOrders/activeOrders";
 import {Createorder} from "../pages/rep/createorder/createorder";
+import {Location} from "../pages/location/location";
 @Component({
   templateUrl: 'app.html'
 })
@@ -52,6 +53,7 @@ export class MyApp {
       { title: 'Home', icon: 'home',component: HomePage},
       { title: 'My Account', icon: 'contact',component: Editaccount },
       { title: 'Contact US', icon: 'contacts',component: Contact },
+      { title: 'Location', icon: 'map',component: Location},
       { title: 'Favorite', icon: 'heart',component: Favorite },
       { title: 'Order History', icon: 'calendar',component: HistoryPage },
       { title: 'Cart', icon: 'cart',component: Cart },

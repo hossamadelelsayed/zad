@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, ToastController, MenuController} from 'ionic-angular';
+import {NavController, ToastController, MenuController, LoadingController} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { Lang } from '../lang/lang';
@@ -17,6 +17,7 @@ import {Cart} from "../cart/cart";
 export class HomePage {
   public MainService = MainService;
   public products : any = null;
+  public categories : any = null;
   public productNews : any = null;
   constructor(public navCtrl: NavController
               ,public alertCtrl: AlertController
@@ -25,10 +26,14 @@ export class HomePage {
               ,public favoriteService: FavoriteService
               ,public orderService: OrderService
               ,public customerService: CustomerService
-              ,public menuCtrl: MenuController) {
+              ,public menuCtrl: MenuController
+              ,public loadingCtrl: LoadingController) {
 
   }
   ionViewWillEnter(){
+    this.productService.categoryGet().subscribe((res)=>{
+      this.categories = res;
+    });
     this.productService.productGet().subscribe((res)=>{
       this.products = res;
     });
@@ -88,31 +93,14 @@ export class HomePage {
     });
     toast.present();
   }
-  showCheckbox() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Which planets have you visited?');
-
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Alderaan',
-      value: 'value1',
-      checked: true
+  filterByCategory(category_id)
+  {
+    let loading = this.loadingCtrl.create({content: 'Loading...'});
+    loading.present();
+    this.productService.productGetByCategory(category_id).subscribe((res)=>{
+      this.products = res;
+      loading.dismiss();
     });
-
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Bespin',
-      value: 'value2'
-    });
-
-    alert.addButton('Cancel');
-    alert.addButton({
-      text: 'Okay',
-      handler: data => {
-        console.log('Checkbox data:', data);
-      }
-    });
-    alert.present();
   }
   toggleMenu() {
     this.menuCtrl.toggle();
