@@ -19,10 +19,17 @@ export class CustomerService {
   public customerUpdateUrl : string = MainService.baseUrl+"api/user/update";
   public customerOrdersUrl : string = MainService.baseUrl+"api/customer/orders/get";
   public customersGetUrl : string = MainService.baseUrl+"api/customer/all/get?lang=";
+  public customerLocationSendUrl : string = MainService.baseUrl+"api/customer/location/send";
+
 
   constructor(public http: Http,
               private nativeStorage: NativeStorage) {
     console.log('Hello CustomerService Provider');
+  }
+  customerLocationSend(inputs)
+  {
+    inputs.lang = MainService.lang;
+    return this.http.post(this.customerLocationSendUrl,inputs).map((res) => res.json());
   }
   customersGet(){
     return this.http.get(this.customersGetUrl+MainService.lang).map((res) => res.json());
