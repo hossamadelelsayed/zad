@@ -31,6 +31,7 @@ import {Orderdetails} from "../pages/rep/orderdetails/orderdetails";
 import {Geolocation} from "@ionic-native/geolocation";
 import {RepCustomerAdd} from "../pages/rep/addCustomer/signup";
 import {Location} from "../pages/location/location";
+import {CustomerSearch} from "../pages/customer-search/customer-search";
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
@@ -54,7 +55,8 @@ export function createTranslateLoader(http: Http) {
     Createorder,
     Orderdetails,
     RepCustomerAdd,
-    Location
+    Location,
+    CustomerSearch
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ export function createTranslateLoader(http: Http) {
     Createorder,
     Orderdetails,
     RepCustomerAdd,
-    Location
+    Location,
+    CustomerSearch
   ],
   providers: [
     StatusBar,

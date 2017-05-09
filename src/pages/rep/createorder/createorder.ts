@@ -4,6 +4,7 @@ import {Orderdetails} from '../orderdetails/orderdetails';
 import {CustomerService} from "../../../providers/customer-service";
 import {RepService} from "../../../providers/rep-service";
 import {RepCustomerAdd} from "../addCustomer/signup";
+import {CustomerSearch} from "../../customer-search/customer-search";
 
 @Component({
   selector: 'page-createorder',
@@ -50,6 +51,14 @@ export class Createorder {
     modal.present();
     modal.onDidDismiss(()=>{
       this.getCustomers();
+    });
+  }
+  customerSearchModal()
+  {
+    let modal = this.modalCtrl.create(CustomerSearch,this.customers);
+    modal.present();
+    modal.onDidDismiss((customer_id)=>{
+      this.orderInputs.customer_id = customer_id;
     });
   }
 }

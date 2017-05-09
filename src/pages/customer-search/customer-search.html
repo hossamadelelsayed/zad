@@ -1,0 +1,23 @@
+<!--
+  Generated template for the CustomerSearch page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Customer Search' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar #search (ionInput)="getCustomers($event)"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let customer of customersFilter" (click)="selectCustomer(customer)">
+      {{ customer.user.user_name }}&nbsp;  tel:&nbsp;{{ customer.user.mobile }}
+    </button>
+  </ion-list>
+</ion-content>

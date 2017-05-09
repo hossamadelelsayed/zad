@@ -28,7 +28,8 @@
           <ion-segment-button value="menu">
               <ion-icon style="color:black"ios="ios-list" md="md-list"></ion-icon>
           </ion-segment-button>
-            <ion-segment-button>
+            <!--
+            <ion-segment-button >
               <ion-icon style="color:black"ios="ios-search-outline" md="md-search">
               </ion-icon>
               <ion-select #s (ionChange)="filterByCategory(s._values[0])">
@@ -36,9 +37,24 @@
                 <ion-option value="0">{{'All' | translate}}</ion-option>
               </ion-select>
             </ion-segment-button>
+          -->
           </ion-segment>
       </div>
 
+    </ion-col>
+    <ion-col col-7>
+     </ion-col>
+    <ion-col col-2>
+        <ion-segment>
+          <ion-segment-button >
+            <ion-icon style="color:black;margin-left: 15px;" ios="ios-search-outline" md="md-search">
+            </ion-icon>
+            <ion-select #s (ionChange)="filterByCategory(s._values[0])">
+              <ion-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</ion-option>
+              <ion-option value="0">{{'All' | translate}}</ion-option>
+            </ion-select>
+          </ion-segment-button>
+        </ion-segment>
     </ion-col>
     <!--
     <ion-col col-6>
