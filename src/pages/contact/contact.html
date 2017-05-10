@@ -7,18 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Contact Us</ion-title>
+    <ion-title>{{'Contact US' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content >
-     
-    <form class="forma">
-       <ion-input class="emailcon" type="email"placeholder="Email"> </ion-input>
-       <ion-textarea class="area" placeholder="Enter a description"  rows="10"></ion-textarea>
-       <button ion-button class="send">Send</button>
-    </form>
-     
+  <ion-row>
+    <ion-col col-12>
+      <form class="forma" #f="ngForm">
+        <ion-input name="email" [(ngModel)]="mail.email"  class="emailcon" type="email"placeholder="Email" required> </ion-input>
+        <ion-textarea name="subject" [(ngModel)]="mail.subject" class="area" placeholder="Enter a description"  rows="10" required></ion-textarea>
+        <button [disabled]="!f.valid" ion-button class="send" (click)="sendMail()">{{'Send' | translate}}</button>
+      </form>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item>
+      <ion-icon ios="ios-mail" md="md-mail" item-left >
+      </ion-icon>
+      <button ion-button color="dark2" clear >{{contacts?.email.value}}</button>
+      </ion-item>
+    <ion-item *ngFor="let phone of contacts?.phones">
+      <ion-icon ios="ios-call" md="md-call"  item-left >
+      </ion-icon>
+      <button  ion-button color="dark2" clear >{{phone.content}}</button>
+    </ion-item>
+    <ion-item *ngFor="let address of contacts?.address">
+      <ion-icon ios="ios-map" md="md-map"  item-left >
+      </ion-icon>
+      <button ion-button color="dark2" clear >{{address.content}}</button>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -32,6 +32,7 @@ import {Geolocation} from "@ionic-native/geolocation";
 import {RepCustomerAdd} from "../pages/rep/addCustomer/signup";
 import {Location} from "../pages/location/location";
 import {CustomerSearch} from "../pages/customer-search/customer-search";
+import {ContactService} from "../providers/contact-service";
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
@@ -100,7 +101,8 @@ export function createTranslateLoader(http: Http) {
     OrderService,
     NativeStorage,
     Geolocation,
-    RepService
+    RepService,
+    ContactService
   ]
 })
 export class AppModule {}

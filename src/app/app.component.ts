@@ -47,6 +47,7 @@ export class MyApp {
       { title: 'Home', icon: 'home',component: HomePage},
       { title: 'SignUp', icon: 'log-in',component: Signup },
       { title: 'Login', icon: 'log-in',component: LoginPage},
+      { title: 'Contact US', icon: 'contacts',component: Contact },
       { title: 'Lang', icon: 'home',component: Lang },
     ];
     this.customerPages = [
@@ -61,6 +62,7 @@ export class MyApp {
       { title: 'Lang', icon: 'home',component: Lang },
     ]
     this.repPages = [
+      { title: 'Contact US', icon: 'contacts',component: Contact },
       { title: 'My Account', icon: 'contact',component: Editaccount },
       { title: 'Order History', icon: 'calendar',component: HistoryPage },
       { title: 'Active Orders', icon: 'calendar',component: ActiveOrdersPage },
